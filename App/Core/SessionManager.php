@@ -80,12 +80,12 @@ class SessionManager extends AUtility
     }
 
     /**
-     * @param string|null $cacheExpire
+     * @param false|int $cacheExpire
      * @param string|null $cacheLimiter
      * @return SessionManager
      * @description Returns the instance of SessionManager
      */
-    public static function getInstance(string $cacheExpire = null, string $cacheLimiter = null): SessionManager
+    public static function getInstance(false|int $cacheExpire = false, string $cacheLimiter = null): SessionManager
     {
         if (!isset(self::$instance)) {
             self::$instance = new SessionManager($cacheExpire, $cacheLimiter);
