@@ -46,8 +46,8 @@ abstract class AUtility
     }
 
     /**
-     * @param string $safeMessage
-     * @param string $message
+     * @param string $safeMessage if not in dev mode, this message will be shown
+     * @param string $message if in dev mode, this message will be shown (if provided)
      * @return void
      * @description Adds an error message to the session
      */

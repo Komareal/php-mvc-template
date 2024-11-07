@@ -5,6 +5,10 @@ namespace Core;
 abstract class AController extends AUtility
 {
 
+    /**
+     * @var array
+     * @description  associative array of data to pass to the view. Propagates to all components and views
+     */
     protected array $baseData = [];
 
     /**
@@ -12,14 +16,34 @@ abstract class AController extends AUtility
      */
     protected array $components = [];
 
+    /**
+     * @var array
+     * @description associative array of data to pass to the view. Does not propagate to components
+     */
     protected array $data = [];
 
+    /**
+     * @var array
+     * @description Handled GET parameters
+     */
     protected array $get;
 
+    /**
+     * @var array
+     * @description Parameters passed to the controller
+     */
     protected array $params;
 
+    /**
+     * @var array
+     * @description Handled POST parameters
+     */
     protected array $post;
 
+    /**
+     * @var string
+     * @description View to render
+     */
     protected string $view;
 
     public function __construct(array $params, array $post = [], array $get = [])
@@ -39,6 +63,10 @@ abstract class AController extends AUtility
         return $this->baseData;
     }
 
+    /**
+     * @return void
+     * @description Recursively prepares components
+     */
     public function loadComponents()
     {
         $router = Router::get();
@@ -50,6 +78,10 @@ abstract class AController extends AUtility
 
     }
 
+    /**
+     * @return void
+     * @description Renders the view (if set) and propagates to components (do not call directly as it's called by the router)
+     */
     public function renderView(): void
     {
         $this->beforeRender();
@@ -71,11 +103,21 @@ abstract class AController extends AUtility
         $this->params = $params;
     }
 
+    /**
+     * @param string $name
+     * @return string
+     * @description Returns the absolute URL of the application asset
+     */
     protected function asset(string $name): string
     {
         return $this->getAbsoluteUrl() . "/public/assets/$name";
     }
 
+    /**
+     * @param string|null $path
+     * @return string
+     * @description Returns the absolute URL of the application image asset - if path is not set, returns the default image
+     */
     protected function assetImg(?string $path): string
     {
 
@@ -89,6 +131,10 @@ abstract class AController extends AUtility
         return $img;
     }
 
+    /**
+     * @return void
+     * @description Hook to run before rendering the view (meant to be overridden)
+     */
     protected function beforeRender()
     {
     }
@@ -97,6 +143,7 @@ abstract class AController extends AUtility
      * @param string $name
      * @param array $params Params to pass to the component, - can be accessed only in beforeRender
      * @return void
+     * @description Renders a component (call only from the view)
      */
     protected function component(string $name, array $params = []): void
     {
@@ -108,11 +155,6 @@ abstract class AController extends AUtility
         $controller->addParams($params);
 
         $controller->renderView();
-    }
-
-    protected function setView($view)
-    {
-        $this->view = $view;
     }
 
 }
