@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="cs">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" href="<?= $this->getAbsoluteUrl() ?>/public/assets/css/index.css">
+	<script src="<?= $this->getAbsoluteUrl() ?>/public/assets/js/index.js" defer></script>
+	<title><?= $title ?></title>
+</head>
+<body class="min-h-dvh bg-gradient-to-b from-cyan-400">
+<header class="mx-auto container bg-gradient-to-r from-blue-500 to-blue-800 px-12 lg:px-32 py-10 shadow-lg shadow-gray-500 rounded-b-2xl mb-6">
+	<nav class="flex flex-col justify-center items-center gap-1">
+		<h1 class="text-white text-4xl font-semibold">
+			<a href="<?= $this->route('login') ?>">
+				MVC Template
+			</a>
+		</h1>
+	</nav>
+</header>
+<main>
+    <?php $this->content() ?>
+</main>
+<div class="messages absolute top-36 right-10">
+    <?php foreach ($_messageTypes as $type => $messages):
+        foreach ($messages as $message):
+            ?>
+			<div class="message-<?= $type ?> w-fit rounded-xl bg-white border-2 p-4 shadow-lg shadow-gray-500 flex gap-4 justify-around">
+				<div class="flex items-center p-0.5 rounded hover:cursor-pointer hover:shadow hover:shadow-gray-500 hover:scale-110 transform transition duration-300 ease-in-out">
+					<img src="<?= $this->getAbsoluteUrl() ?>/public/assets/svg/xmark-solid.svg" alt="close" height="16" width="16">
+				</div>
+				<div>
+					<p>
+                        <?= $message ?>
+					</p>
+				</div>
+			</div>
+        <?php
+        endforeach;
+    endforeach;
+    ?>
+</div>
+</body>

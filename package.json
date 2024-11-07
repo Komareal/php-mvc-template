@@ -1,0 +1,11 @@
+{
+  "name": "mvc",
+  "version": "1.0.0",
+  "description": "",
+  "devDependencies": {
+    "tailwindcss": "^3.4.14"
+  },
+  "scripts": {},
+  "author": "Aleš Komárek",
+  "license": "ISC"
+}

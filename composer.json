@@ -1,0 +1,16 @@
+{
+	"require": {
+		"php": "^8",
+		"ext-curl": "^8",
+		"ext-json": "^8",
+		"ext-pdo": "*",
+		"ext-fileinfo": "*"
+	},
+	"autoload": {
+		"psr-4": {
+			"Controllers\\": "App/Controllers",
+			"Core\\": "App/Core",
+			"Models\\": "App/Models"
+		}
+	}
+}
