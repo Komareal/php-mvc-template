@@ -2,10 +2,10 @@
 
 namespace Controllers\Auth;
 
-use Core\AAuthedAController;
+use Core\AAuthedController;
 use Models\User\AuthService;
 
-class LoginControllerA extends AAuthedAController
+class LoginController extends AAuthedController
 {
 
     public function index()

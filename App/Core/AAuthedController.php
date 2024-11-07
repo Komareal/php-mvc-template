@@ -5,7 +5,7 @@ namespace Core;
 use Models\User\AuthService;
 use Models\User\User;
 
-abstract class AAuthedAController extends AController
+abstract class AAuthedController extends AController
 {
 
     protected ?User $user;

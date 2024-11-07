@@ -2,11 +2,11 @@
 
 namespace Controllers\Auth;
 
-use Core\AAuthedAController;
+use Core\AAuthedController;
 use Models\User\User;
 use Models\User\UserService;
 
-class RegisterControllerA extends AAuthedAController
+class RegisterController extends AAuthedController
 {
 
     public function index()

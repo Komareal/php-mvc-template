@@ -2,9 +2,9 @@
 
 namespace Controllers;
 
-use Core\AAuthedAController;
+use Core\AAuthedController;
 
-class HomeControllerA extends AAuthedAController
+class HomeController extends AAuthedController
 {
 
     public function index()

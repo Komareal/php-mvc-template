@@ -2,7 +2,7 @@
 
 namespace Core;
 
-use Controllers\LayoutAController;
+use Controllers\LayoutController;
 
 /**
  * @class Router
@@ -135,7 +135,7 @@ class Router extends AUtility
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $this->fatal("Route $url is not accessible via POST", 405, 'Stránka nenalezena');
             }
-            $baseController = $this->loadController(LayoutAController::class, 'index', [
+            $baseController = $this->loadController(LayoutController::class, 'index', [
                 'content' => [$route->getControllerName() => $route->getAction()],
             ]);
             $baseController->setParams($this->params);

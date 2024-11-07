@@ -7,7 +7,7 @@ use Core\AController;
 use Core\SessionManager;
 use Models\User\AuthService;
 
-class LayoutAController extends AController
+class LayoutController extends AController
 {
 
     public function __construct(array $params)
